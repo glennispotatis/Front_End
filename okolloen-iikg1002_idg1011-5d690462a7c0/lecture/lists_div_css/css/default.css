@@ -1,0 +1,23 @@
+#menu ul {
+  list-style-type: none;
+}
+
+#menu li {
+  /*border: 1px solid black;*/
+  width: 8em;
+  /*display: inline-block;
+  margin: 0 10px;*/
+}
+
+#menu a {
+  /*border: 1px solid red;*/
+  width: 100%;
+  display: inline-block;
+  padding: 3px 8px;
+  margin: 2px;
+  background-color: #def;
+}
+
+#menu .selected {
+  background-color: beige;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>FORM, hente data fra brukeren (og vise data)</title>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+
+      label {
+        display: inline-block;
+        width: 6em;
+      }
+
+      label.newline {
+        display: block;
+      }
+
+      p {
+        margin: 2px 0;
+      }
+
+      input {
+        width: 15em;
+      }
+
+      input[type="checkbox"] {
+        width: 1.5em;
+      }
+
+      select {
+        width: 15em;
+      }
+
+      textarea {
+        width: 24em;
+        height: 5em;
+      }
+
+      button {
+        width: 12em;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="hvor_skal_data_sendes" method="get">
+      <ul>
+        <li>
+          <label for="id_til_elementet">Ledetekst</label>
+          <input type="text" id="id_til_elementet" />
+        </li>
+        <li>
+          <label for="navn">Navn</label>
+          <input type="text" id="navn" autofocus />
+        </li>
+        <li>
+          <label for="pwd">Password</label> <input type="password" id="pwd" />
+        </li>
+        <li>
+          <label for="epost">Epost</label> <input type="email" id="epost" />
+        </li>
+        <li>
+          <label for="hjemmeside">WWW</label>
+          <input
+            type="url"
+            id="hjemmeside"
+            placeholder="http[s]://www.homepage.com"
+          />
+        </li>
+        <li>
+          <label for="fdato">Fødselsdato</label>
+          <input type="date" id="fdato" />
+        </li>
+        <li>
+          <label for="kommentarer" class="newline">Kommentarer</label>
+          <textarea id="kommentarer"></textarea>
+        </li>
+        <li>
+          <label for="innsats">Timer pr. uke</label>
+          <input type="number" min="0" max="70" id="innsats" />
+        </li>
+        <li>
+          <label for="vekting">%</label>
+          <input type="range" min="0" max="100" id="vekting" />
+        </li>
+        <li>
+          <label for="valg">Velg en</label>
+          <select id="valg">
+            <option value="volvo">volvo</option>
+            <option value="saab">saab</option>
+            <option value="fiat">fiat</option>
+            <option value="audi">audi</option>
+          </select>
+        </li>
+        <li>
+          <label class="newline">Dine favoritter</label>
+          <input type="checkbox" id="bil" /><label for="bil">
+            Bil
+          </label>
+          <br />
+          <input type="checkbox" id="sykkel" /><label for="sykkel">
+            Sykkel
+          </label>
+          <br />
+          <input type="checkbox" id="buss" /><label for="buss">
+            Buss
+          </label>
+          <br />
+        </li>
+        <li><button>OK</button><button>Avbryt</button></li>
+      </ul>
+    </form>
+  </body>
+</html>
