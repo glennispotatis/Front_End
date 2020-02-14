@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .schedule {
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 500px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .schedule>div {
+      height: 20em;
+      width: 15em;
+      overflow-y: auto;
+      padding-left: 1em;
+      box-shadow: 3px 3px 14px -4px rgba(0,0,0,0.75);
+      margin: 4px;
+    }
+
+    .schedule details {
+      display: inline-block;
+      vertical-align: text-top;
+    }
+
+    .schedule summary {
+      display: inline-block;
+      width: 10em;
+      margin-left: -1em;
+      width: 11em;
+    }
+
+    .schedule summary:hover {
+      font-weight: bold;
+    }
+
+    .schedule summary:focus {
+      outline: none;
+    }
+
+    .schedule summary::-webkit-details-marker {
+      background: none;
+      color: transparent;
+    }
+
+    .schedule details div {
+      display: inline-block;
+      width: 10.5em;
+    }
+
+    /* scrollbar */
+    .schedule ::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    /* Track */
+    .schedule ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    .schedule ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    .schedule ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="schedule">
+    <script>
+      fetch("tvguide.json")      // Hent data fra tvguide.json
+      .then(data=>data.json())   // Dekod json data
+      .then(json=>{
+        console.log(json);       // Vis data i consolet (fjernes når utviklingen er ferdig)
+        let schedule = document.querySelector('.schedule');
+        json.channels.forEach(channel=>{                // Gå gjennom alle kanalene
+          let div = document.createElement('DIV');      // Hver kanal listes i en div
+          div.innerHTML = `<h2>${channel.title}</h2>`;  // Vis navnet på kanalen
+          channel.schedule.forEach(program=>{           // Gå gjennom alle programmer på aktuell kanal
+            let now = new Date();
+            let end = new Date(program.end);            // Tidspunkt for når programmet slutter
+//            if (end>now) {  // List kun programmer som enda ikke er ferdige
+              let programInfo = document.createElement('DIV');  // Hvert program legges inn i en div
+              let startTime = new Date(program.start);  // Tidspunktet for når programmet starter
+              // Timer og minutter har kun et siffer dersom de er <10, legg til 0 først for bedre formatering.
+              let hours = (startTime.getHours()+"").padStart(2, "0");
+              let minutes = (startTime.getMinutes()+"").padStart(2, "0");
+              programInfo.innerHTML =  // Se https://www.w3schools.com/tags/tag_summary.asp for bruk av details/summary taggene
+`<span>${hours}:${minutes}</span>&nbsp;<details><summary>${program.title}</summary><div>${program.desc}</div></details>`;
+              div.appendChild(programInfo);            // Legg til programmet innenfor kanalen
+//            }
+          });  // forEach schedule
+          schedule.appendChild(div);                   // Legg til kanalen i listingen
+        }); // forEach channels
+      });  // fetch
+    </script>
+  </div>
+</body>
+</html>
