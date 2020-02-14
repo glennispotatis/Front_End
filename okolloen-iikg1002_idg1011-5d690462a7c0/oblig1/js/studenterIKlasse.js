@@ -5,20 +5,52 @@ fetch('../studenter.json')
     .then(student => {
         document.querySelector('input#BIGEOMAT').addEventListener("click", function(){
             ul.innerHTML = "";
-            if(student.forkortelse == "BIGEOMAT"){
-                student.forEach(student=> {
-                    ul.innerHTML += `<li>${student.fornavn}</li> <li>${student.etternavn}</li> <li>${student.studieprogram}</li> <li>${student.forkortelse}</li> </br>`;
-                });
-            } else {console.log("fail")};
+            student.filter(student => student.forkortelse === "BIGEOMAT").forEach(function(student){
+                let li = document.createElement('LI');
+                li.innerHTML = `<p class="name">${student.fornavn} ${student.etternavn}</p>
+                                <p class="studyprogram">${student.studieprogram} (${student.forkortelse})</p>`
+                ul.appendChild(li);
+            });
         });
-        //document.querySelector('input#BWU').addEventListener("click", showBWU());
-        //document.querySelector('input#ÅRWEB').addEventListener("click", showAARWEB());
-        //document.querySelector('input#BIXD').addEventListener("click", showBIXD());
+
+        document.querySelector('input#BWU').addEventListener("click", function(){
+            ul.innerHTML = "";
+            student.filter(student => student.forkortelse === "BWU").forEach(function(student){
+                let li = document.createElement('LI');
+                li.innerHTML = `<p class="name">${student.fornavn} ${student.etternavn}</p>
+                                <p class="studyprogram">${student.studieprogram} (${student.forkortelse})</p>`
+                ul.appendChild(li);
+            });
+        });
+
+        document.querySelector('input#ÅRWEB').addEventListener("click", function(){
+            ul.innerHTML = "";
+            student.filter(student => student.forkortelse === "ÅRWEB").forEach(function(student){
+                let li = document.createElement('LI');
+                li.innerHTML = `<p class="name">${student.fornavn} ${student.etternavn}</p>
+                                <p class="studyprogram">${student.studieprogram} (${student.forkortelse})</p>`
+                ul.appendChild(li);
+            });
+        });
+
+        document.querySelector('input#BIXD').addEventListener("click", function(){
+            ul.innerHTML = "";
+            student.filter(student => student.forkortelse === "BIXD").forEach(function(student){
+                let li = document.createElement('LI');
+                li.innerHTML = `<p class="name">${student.fornavn} ${student.etternavn}</p>
+                                <p class="studyprogram">${student.studieprogram} (${student.forkortelse})</p>`
+                ul.appendChild(li);
+            });
+        });
+
         document.querySelector('input#all').addEventListener("click", function(){
             ul.innerHTML = "";
             student.forEach(student=> {
-                ul.innerHTML += `<li>${student.fornavn}</li> <li>${student.etternavn}</li> <li>${student.studieprogram}</li> <li>${student.forkortelse}</li> </br>`;
-            })
+                let li = document.createElement('LI');
+                li.innerHTML = `<p class="name">${student.fornavn} ${student.etternavn}</p>
+                                <p class="studyprogram">${student.studieprogram} (${student.forkortelse})</p>`
+                ul.appendChild(li);
+            });
         });
         
     });
