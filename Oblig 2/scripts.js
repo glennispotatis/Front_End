@@ -1,6 +1,6 @@
 // Define variables
-let output = document.getElementById('output');
-let input = document.getElementById('age');
+var output = document.getElementById('output');
+var input = document.getElementById('age');
 
 // The display function
 function display(){
