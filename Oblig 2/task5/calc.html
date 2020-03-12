@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		Demo
+	</title>
+</head>
+
+<body>
+
+	<h1> My First Calculator </h1>
+
+
+	<p> Please enter two integer value</p>
+
+	<label>Number 1</label>
+	<input type="text" name="number1" id="n1">
+	<label>Number 2</label>
+	<input type="text" name="number2" id="n2">
+	<br><br>
+
+	<input onclick="add()" type="button" name="add" value="Add">
+	<input onclick="sub()" type="button" name="sub" value="Sub">
+	<input onclick="mul()" type="button" name="mul" value="Mul">
+	<input onclick="div()" type="button" name="div" value="Div">
+	<input onclick="pow()" type="button" name="pow" value="Power">
+
+	<br><br><br>
+	<label>Result</label>
+	<input type="text" name="txt" id="display" value="results">
+
+	<script>
+		function add() {
+
+			num1 = parseInt(document.getElementById('n1').value);
+			num2 = parseInt(document.getElementById('n2').value);
+			result = num1 + num2;
+			document.getElementById('display').value = result;
+		}
+
+		function sub() {
+			num1 = parseInt(document.getElementById('n1').value);
+			num2 = parseInt(document.getElementById('n2').value);
+			result = num1 - num2;
+			document.getElementById('display').value = result;
+		}
+
+		function mul() {
+			num1 = parseInt(document.getElementById('n1').value);
+			num2 = parseInt(document.getElementById('n2').value);
+			result = num1 * num2;
+			document.getElementById('display').value = result;
+		}
+
+		function div() {
+			num1 = parseInt(document.getElementById('n1').value);
+			num2 = parseInt(document.getElementById('n2').value);
+			result = num1 / num2;
+			document.getElementById('display').value = result;
+		}
+
+		function pow(){
+			num1 = parseInt(document.getElementById('n1').value);
+			num2 = parseInt(document.getElementById('n2').value);
+			result = Math.pow(num1, num2);
+			document.getElementById('display').value = result;
+		}
+	</script>
+
+
+
+</body>
+
+</html>
