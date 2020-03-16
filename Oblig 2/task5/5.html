@@ -24,7 +24,7 @@
 	<input onclick="sub()" type="button" name="sub" value="Sub">
 	<input onclick="mul()" type="button" name="mul" value="Mul">
 	<input onclick="div()" type="button" name="div" value="Div">
-	<input onclick="pow()" type="button" name="pow" value="Power">
+	<input onclick="pow(), validate()" type="button" name="pow" value="Power">
 
 	<br><br><br>
 	<label>Result</label>
@@ -66,6 +66,12 @@
 			result = Math.pow(num1, num2);
 			document.getElementById('display').value = result;
 		}
+
+		function validate() {
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("You need to insert a number!");
+            }
+        }
 	</script>
 
 
