@@ -7,7 +7,7 @@
 
 <body>
 
-	<h1> Form Validation </h1>
+	<h1>Profile</h1>
 
 	Your Name
 	<form name="Login" method="post" action="#" onsubmit="return validateForm()">
@@ -24,12 +24,43 @@
 		<input type="text" name="number" id="num">
 
 
-		<input type="submit" name="sub" value="Submit">
+		<input onclick="profile()" type="submit" name="sub" value="Update">
 
 	</form>
 
 
 	<script>
+		class Profile{
+			constructor(){
+				this.name = document.getElementById('FN').value;
+				this.age = parseInt(document.getElementById('age').value);
+				this.email = document.getElementById('e').value;
+				this.number = parseInt(document.getElementById('num').value);
+			};
+			setProfile(name, age, email, number){
+				this.name = name;
+				this.age = age;
+				this.email = email;
+				this.number = number;
+				profile.saveProfile();
+			};
+			getProfile(){
+				//code here
+			};
+			saveProfile(){
+				localStorage.setItem('name', name);
+				localStorage.setItem('age', age);
+				localStorage.setItem('email', email);
+				localStorage.setItem('number'), number;
+			};
+		}
+
+		function profile(){
+			profile = new Profile();
+			profile.setProfile();
+			//profile.getProfile();
+		}
+
 		function validateForm() {
 
 			var x = document.forms['Login']['fName'].value;

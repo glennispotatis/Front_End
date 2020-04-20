@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/default.css">
+  <title>Bookmerker</title>
+</head>
+
+<body>
+  <nav>
+    <ul></ul>
+  </nav>
+  <section id="main">
+    <h2>Heading</h2>
+    <form onsubmit="javascript: return false;">
+      <label for="url">URL</label><input type="text" id="url"><br>
+      <label for="title">Tittel</label><input type="text" id="title"><br>
+      <label for="descr">Beskrivelse</label><br><textarea id="descr" cols="30" rows="10"></textarea><br />
+      <button>Lagre link</button>
+    </form>
+    <ul class="linkliste"></ul>
+  </section>
+  <section id="otherPage">
+    <h2>Heading</h2>
+    <h1>En annen side</h1>
+  </section>
+  <script src="js/classes/Link.js"></script>
+  <script src="js/classes/Links.js"></script>
+  <script src="js/default.js"></script>
+  <script src="js/classes/Menu.js"></script>
+  <script>
+    new Menu('nav>ul', 'body>section', 'js/menu.json');
+  </script>
+</body>
+
+</html>
