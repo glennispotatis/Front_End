@@ -35,7 +35,11 @@
 				this.age = parseInt(document.getElementById('age').value);
 				this.email = document.getElementById('e').value;
 				this.number = parseInt(document.getElementById('num').value);
+
 				//console.log(this.name + ' in constructor');
+				//console.log(this.age + ' in constructor');
+				//console.log(this.email + ' in constructor');
+				//console.log(this.number + ' in constructor');
 			};
 			setProfile(){
 				let name = this.name;
@@ -52,6 +56,12 @@
 			getProfile(){
 				let dName = document.getElementById('FN');
 				dName.value = localStorage.getItem('name');
+				let dAge = document.getElementById('age');
+				dName.value = localStorage.getItem('age');
+				let dEmail = document.getElementById('e');
+				dName.value = localStorage.getItem('email');
+				let dNumber = document.getElementById('num');
+				dName.value = localStorage.getItem('number');
 
 				console.log(localStorage.getItem('name') + ' in getProfile');
 				console.log(localStorage.getItem('age') + ' in getProfile');
