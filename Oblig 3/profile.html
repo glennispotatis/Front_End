@@ -11,7 +11,6 @@
 
 	Your Name
 	<form name="Login" method="post" action="#" onsubmit="return validateForm()">
-
 		<input type="text" name="fName" id="FN"> <br>
 
 		Age <br>
@@ -24,7 +23,7 @@
 		<input type="text" name="number" id="num">
 
 
-		<input onclick="profile()" type="submit" name="sub" value="Update">
+		<input onclick="thisProfile()" type="submit" name="sub" value="Update">
 
 	</form>
 
@@ -36,29 +35,33 @@
 				this.age = parseInt(document.getElementById('age').value);
 				this.email = document.getElementById('e').value;
 				this.number = parseInt(document.getElementById('num').value);
+				//alert(this.name + ' in constructor');
 			};
-			setProfile(name, age, email, number){
-				this.name = name;
-				this.age = age;
-				this.email = email;
-				this.number = number;
+			setProfile(){
+				this.name;
+				this.age;
+				this.email;
+				this.number;
+				//alert(this.name + ' in setProfile');
 				profile.saveProfile();
 			};
 			getProfile(){
 				//code here
+				//alert('In getProfile');
 			};
 			saveProfile(){
-				localStorage.setItem('name', name);
-				localStorage.setItem('age', age);
-				localStorage.setItem('email', email);
-				localStorage.setItem('number'), number;
+				localStorage.setItem('name', this.name);
+				localStorage.setItem('age', this.age);
+				localStorage.setItem('email', this.email);
+				localStorage.setItem('number', this.number);
+				//alert('In saveProfile')
 			};
-		}
+		};
 
-		function profile(){
+		function thisProfile(){
 			profile = new Profile();
 			profile.setProfile();
-			//profile.getProfile();
+			profile.getProfile();
 		}
 
 		function validateForm() {
@@ -77,14 +80,14 @@
 				return false;
 			} else if (parseInt(a) < 12 || parseInt(a) > 110) {
 				alert("age should be between 12 and 110");
-				//return false;
+				return false;
 			}
 
 
 			//https://www.udemy.com/blog/javascript-validation-2/?utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_88010211481_._ad_398022934994_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_1010781_._pd__._&matchtype=b&gclid=EAIaIQobChMI5p7VzI7V6AIVDImyCh31oAylEAAYASAAEgK9IfD_BwE
 
 			var em = document.forms['Login']['email'].value;
-			alert(em);
+			//alert(em);
 			var atpos = em.indexOf("@");
 			// Create a variable to return the numerical value of .
 			// within the variable
