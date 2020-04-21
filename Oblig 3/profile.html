@@ -36,11 +36,12 @@
 				this.email = document.getElementById('e').value;
 				this.number = parseInt(document.getElementById('num').value);
 
-				//console.log(this.name + ' in constructor');
-				//console.log(this.age + ' in constructor');
-				//console.log(this.email + ' in constructor');
-				//console.log(this.number + ' in constructor');
+				/* console.log(this.name + ' in constructor');
+				console.log(this.age + ' in constructor');
+				console.log(this.email + ' in constructor');
+				console.log(this.number + ' in constructor'); */
 			};
+
 			setProfile(){
 				let name = this.name;
 				let age = this.age;
@@ -48,36 +49,38 @@
 				let number = this.number;
 				this.saveProfile(name, age, email, number);
 
-				console.log(name + ' in setProfile');
+				/* console.log(name + ' in setProfile');
 				console.log(age + ' in setProfile');
 				console.log(email + ' in setProfile');
-				console.log(number + ' in setProfile');
+				console.log(number + ' in setProfile'); */
 			};
+
 			getProfile(){
 				let dName = document.getElementById('FN');
 				dName.value = localStorage.getItem('name');
 				let dAge = document.getElementById('age');
-				dName.value = localStorage.getItem('age');
+				dAge.value = localStorage.getItem('age');
 				let dEmail = document.getElementById('e');
-				dName.value = localStorage.getItem('email');
+				dEmail.value = localStorage.getItem('email');
 				let dNumber = document.getElementById('num');
-				dName.value = localStorage.getItem('number');
+				dNumber.value = localStorage.getItem('number');
 
-				console.log(localStorage.getItem('name') + ' in getProfile');
+				/* console.log(localStorage.getItem('name') + ' in getProfile');
 				console.log(localStorage.getItem('age') + ' in getProfile');
 				console.log(localStorage.getItem('email') + ' in getProfile');
-				console.log(localStorage.getItem('number') + ' in getProfile');
+				console.log(localStorage.getItem('number') + ' in getProfile'); */
 			};
+
 			saveProfile(name, age, email, number){
 				localStorage.setItem('name', name);
 				localStorage.setItem('age', this.age);
 				localStorage.setItem('email', this.email);
 				localStorage.setItem('number', this.number);
 
-				console.log(localStorage.getItem('name') +  ' in saveProfile');
+				/* console.log(localStorage.getItem('name') +  ' in saveProfile');
 				console.log(localStorage.getItem('age') +  ' in saveProfile');
 				console.log(localStorage.getItem('email') +  ' in saveProfile');
-				console.log(localStorage.getItem('number') +  ' in saveProfile');
+				console.log(localStorage.getItem('number') +  ' in saveProfile'); */
 			};
 		};
 
