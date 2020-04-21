@@ -38,23 +38,22 @@
 				//alert(this.name + ' in constructor');
 			};
 			setProfile(){
-				this.name;
-				this.age;
-				this.email;
-				this.number;
-				//alert(this.name + ' in setProfile');
+				let name = this.name;
+				let age = this.age;
+				let email = this.email;
+				let number = this.number;
+				//alert(email + ' in setProfile');
 				profile.saveProfile();
 			};
 			getProfile(){
-				//code here
-				//alert('In getProfile');
+				//alert(localStorage.getItem('email') + ' in getProfile');
 			};
 			saveProfile(){
 				localStorage.setItem('name', this.name);
 				localStorage.setItem('age', this.age);
 				localStorage.setItem('email', this.email);
 				localStorage.setItem('number', this.number);
-				//alert('In saveProfile')
+				//alert('In saveProfile');
 			};
 		};
 
