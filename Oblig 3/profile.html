@@ -35,25 +35,39 @@
 				this.age = parseInt(document.getElementById('age').value);
 				this.email = document.getElementById('e').value;
 				this.number = parseInt(document.getElementById('num').value);
-				//alert(this.name + ' in constructor');
+				//console.log(this.name + ' in constructor');
 			};
 			setProfile(){
 				let name = this.name;
 				let age = this.age;
 				let email = this.email;
 				let number = this.number;
-				//alert(email + ' in setProfile');
-				profile.saveProfile();
+				this.saveProfile(name, age, email, number);
+
+				console.log(name + ' in setProfile');
+				console.log(age + ' in setProfile');
+				console.log(email + ' in setProfile');
+				console.log(number + ' in setProfile');
 			};
 			getProfile(){
-				//alert(localStorage.getItem('email') + ' in getProfile');
+				let dName = document.getElementById('FN');
+				dName.value = localStorage.getItem('name');
+
+				console.log(localStorage.getItem('name') + ' in getProfile');
+				console.log(localStorage.getItem('age') + ' in getProfile');
+				console.log(localStorage.getItem('email') + ' in getProfile');
+				console.log(localStorage.getItem('number') + ' in getProfile');
 			};
-			saveProfile(){
-				localStorage.setItem('name', this.name);
+			saveProfile(name, age, email, number){
+				localStorage.setItem('name', name);
 				localStorage.setItem('age', this.age);
 				localStorage.setItem('email', this.email);
 				localStorage.setItem('number', this.number);
-				//alert('In saveProfile');
+
+				console.log(localStorage.getItem('name') +  ' in saveProfile');
+				console.log(localStorage.getItem('age') +  ' in saveProfile');
+				console.log(localStorage.getItem('email') +  ' in saveProfile');
+				console.log(localStorage.getItem('number') +  ' in saveProfile');
 			};
 		};
 
