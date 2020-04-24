@@ -23,14 +23,76 @@
 		<input type="text" name="number" id="num">
 
 
-		<input onclick="thisProfile()" type="submit" name="sub" value="Update">
+		<input onclick="UpdateProfile()" type="submit" name="sub" value="Update">
 
 	</form>
 
 
 	<script>
-		class Profile{
-			constructor(){
+		function validateForm() {
+			var x = document.forms['Login']['fName'].value;
+			if (x == null || x == "") {
+				alert("Please enter your name");
+				document.getElementById('FN').focus();
+				return false;
+			} else if (x.length < 3) {
+				alert("Name need to be longer than 3 characters");
+				return false;
+			}
+
+			a = document.forms['Login']['ageField'].value;
+			if (a == null || a == "") {
+				alert("Age can not be empty");
+				document.getElementById('age').focus();
+				return false;
+			} else if (parseInt(a) < 12 || parseInt(a) > 95) {
+				alert("Age should be between 12 and 95");
+				return false;
+			} else if (isNaN(a)) {
+				alert('Age is not a number')
+				return false;
+			}
+
+			//https://www.udemy.com/blog/javascript-validation-2/?utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_88010211481_._ad_398022934994_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_1010781_._pd__._&matchtype=b&gclid=EAIaIQobChMI5p7VzI7V6AIVDImyCh31oAylEAAYASAAEgK9IfD_BwE
+			var em = document.forms['Login']['email'].value;
+			//alert(em);
+			var atpos = em.indexOf("@");
+			// Create a variable to return the numerical value of .
+			// within the variable
+			var dotpos = em.lastIndexOf(".");
+			// Compare the numerical values
+			if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= em.length) {
+				alert("Not a valid e-mail address");
+				return false;
+			} else if (em == null || em == "") {
+				alert('Email cannot be empty');
+				return false;
+			} else if (em.endsWith("@ntnu.no") == false) {
+				alert('Email needs to be an @ntnu.no email!')
+				//console.log('In ntnu.no mail');
+				return false;
+			}
+
+			var tNumber = document.forms['Login']['number'].value;
+			var stripped = tNumber.replace(/[\(\)\.\-\ ]/g, '');
+			if (tNumber == null || tNumber == "") {
+				alert('Number cannot be empty');
+				document.getElementById('num').focus();
+				return false;
+			} else if (isNaN(parseInt(stripped))) {
+				alert('Phone number is not a number');
+				document.getElementById('num').focus();
+				return false;
+			} else if (stripped.length > 7) {
+				alert('Number cannot be more than 7 digits');
+				return false;
+			}
+
+			return true;
+		}
+
+		class Profile {
+			constructor() {
 				this.name = document.getElementById('FN').value;
 				this.age = parseInt(document.getElementById('age').value);
 				this.email = document.getElementById('e').value;
@@ -42,7 +104,7 @@
 				console.log(this.number + ' in constructor'); */
 			};
 
-			setProfile(){
+			setProfile() {
 				let name = this.name;
 				let age = this.age;
 				let email = this.email;
@@ -55,7 +117,7 @@
 				console.log(number + ' in setProfile'); */
 			};
 
-			getProfile(){
+			getProfile() {
 				let dName = document.getElementById('FN');
 				dName.value = localStorage.getItem('name');
 				let dAge = document.getElementById('age');
@@ -71,60 +133,38 @@
 				console.log(localStorage.getItem('number') + ' in getProfile'); */
 			};
 
-			saveProfile(name, age, email, number){
+			saveProfile(name, age, email, number) {
 				localStorage.setItem('name', name);
 				localStorage.setItem('age', this.age);
 				localStorage.setItem('email', this.email);
 				localStorage.setItem('number', this.number);
 
-				/* console.log(localStorage.getItem('name') +  ' in saveProfile');
-				console.log(localStorage.getItem('age') +  ' in saveProfile');
-				console.log(localStorage.getItem('email') +  ' in saveProfile');
-				console.log(localStorage.getItem('number') +  ' in saveProfile'); */
+				/* console.log(localStorage.getItem('name') + ' in saveProfile');
+				console.log(localStorage.getItem('age') + ' in saveProfile');
+				console.log(localStorage.getItem('email') + ' in saveProfile');
+				console.log(localStorage.getItem('number') + ' in saveProfile'); */
 			};
 		};
 
-		function thisProfile(){
-			profile = new Profile();
-			profile.setProfile();
-			profile.getProfile();
+		function UpdateProfile() {
+			if (validateForm() == true) {
+				myProfile = new Profile();
+				myProfile.setProfile();
+				//alert('UpdateProfile function');
+			}
 		}
 
-		function validateForm() {
-
-			var x = document.forms['Login']['fName'].value;
-			if (x == null || x == "") {
-				alert("Please enter your name");
-				document.getElementById('FN').focus();
+		function displayProfile() {
+			if (localStorage.getItem("name") === null || localStorage.getItem("age") === null || localStorage.getItem(
+					"email") === null || localStorage.getItem("number") === null) {
 				return false;
+			} else {
+				myProfile = new Profile();
+				myProfile.getProfile();
 			}
-
-			a = document.forms['Login']['ageField'].value;
-			if (a == null || a == "") {
-				alert("age can not be empty");
-				document.getElementById('age').focus();
-				return false;
-			} else if (parseInt(a) < 12 || parseInt(a) > 110) {
-				alert("age should be between 12 and 110");
-				return false;
-			}
-
-
-			//https://www.udemy.com/blog/javascript-validation-2/?utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_88010211481_._ad_398022934994_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_1010781_._pd__._&matchtype=b&gclid=EAIaIQobChMI5p7VzI7V6AIVDImyCh31oAylEAAYASAAEgK9IfD_BwE
-
-			var em = document.forms['Login']['email'].value;
-			//alert(em);
-			var atpos = em.indexOf("@");
-			// Create a variable to return the numerical value of .
-			// within the variable
-			var dotpos = em.lastIndexOf(".");
-			// Compare the numerical values
-			if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= em.length) {
-				alert("Not a valid e-mail address");
-				return false;
-			}
-
 		}
+
+		window.onload = displayProfile();
 	</script>
 
 
