@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 6</title>
+</head>
+<body>
+    <h1>Oppgave 6</h1>
+    <input type="radio" id="light" name="theme-color" value="light">
+    <label for="light">Light</label>
+
+    <input type="radio" id="dark" name="theme-color" value="dark">
+    <label for="dark">Dark</label>
+
+    <script>
+        //Oppgave 6 a
+        var light = document.getElementById('light');
+        var dark = document.getElementById('dark');
+
+        light.addEventListener("click", lightMode);
+        dark.addEventListener("click", darkMode);
+
+        function lightMode(){
+            console.log('Light Mode');
+            valueLight = light.value;
+            localStorage.setItem('Mode', valueLight);
+            console.log(localStorage.getItem('Mode'));
+        }
+
+        function darkMode(){
+            console.log('Dark Mode');
+            valueDark = dark.value;
+            localStorage.setItem('Mode', valueDark);
+            console.log(localStorage.getItem('Mode'));
+        }
+
+        //Oppgave 6 b, in the description it says it should just be run when the window is refreshed. So that's what it does now.
+        function changeColor(){
+            var selected = localStorage.getItem('Mode');
+            if(selected == 'light'){
+                document.body.style.backgroundColor = "white";
+            } else if(selected == 'dark'){
+                document.body.style.backgroundColor = "black";
+            }
+        }
+
+        window.onload = changeColor();
+    </script>
+</body>
+</html>

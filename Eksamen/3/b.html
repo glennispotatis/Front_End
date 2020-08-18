@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3b</title>
+</head>
+
+<body>
+    <h1>Oppgave 3b</h1>
+    <form id="myForm-1">
+        <input id="fName" type="text" name="fn">
+        <input id="lName" type="text" name="ln">
+
+        <input onclick="add()" type="button" name="add" value="Add">
+        <input onclick="sub()" type="button" name="sub" value="Sub">
+        <input onclick="myFun()" type="submit" name="submit">
+
+        <script>
+            function countElements() {
+                let forms = document.getElementById("myForm-1");
+                let element = forms.getElementsByTagName("input").length; 
+                alert(element)
+            }
+            countElements();
+        </script>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 5c</title>
+</head>
+<body>
+    <h1>Oppgave 5c</h1>
+
+    <script>
+        var makeCalculator = function () {
+            var n = 0;
+            return {
+                get: () => n,
+                add: (number) => n += number,
+                subtract: (number) => n -= number,
+                division: (number) => n /= number,
+                multiply: (number) => n *= number,
+            };
+        };
+
+        //addTen
+    var calculator = makeCalculator();
+    calculator.add(10);
+    console.log(calculator.get());
+
+      //multiply
+    calculator.multiply(5);
+    console.log(calculator.get());
+
+      //divide
+    calculator.division(2);
+    calculator.subtract(5);
+    console.log(calculator.get());
+        
+    </script>
+</body>
+</html>

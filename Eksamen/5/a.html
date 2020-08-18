@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 5a</title>
+</head>
+<body>
+    <h1>Oppgave 5a</h1>
+
+    <script>
+        var Person = ['Joseph', '53', 'Jone', '13.5','Jane', '0.5', 'Jame', '-17.8', 'Jerry', '0', 'Jimmy', 'Justin'];
+        let name = [];
+        let score = [];
+
+        Person.forEach((splits) => {
+            if (splits.charAt(0) === 'J') {
+            name.push(splits);
+            } else {
+            score.push(splits);
+            }
+        });
+
+        console.log(name);
+        console.log(score);
+
+        name.forEach((names) => {
+        console.log(`${names} -> ${names.length}`);
+        });
+
+        score.forEach((num) => {
+            console.log(Math.round(num));
+        });
+    </script>
+</body>
+</html>

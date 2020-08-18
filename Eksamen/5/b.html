@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 5b</title>
+</head>
+<body>
+    <h1>Oppgave 5b</h1>
+
+    <script>
+        var Numbers = [88, 19, 16, 29, 44, 82, 105, 33, 45, 56, 100];
+        console.log(Numbers.reverse()); //Oppgave a
+        console.log(Numbers.map(Math.sqrt)); //Oppgave b
+        console.log(Math.max(...Numbers)); //Oppgave c
+        
+        //Oppgave d
+        var num = 0;
+        for( var i = 0; i < Numbers.length; i++ ){
+            num += parseInt( Numbers[i], 10 ); 
+        }
+
+        console.log(num/Numbers.length);
+
+    </script>
+</body>
+</html>

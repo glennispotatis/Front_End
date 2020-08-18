@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3a</title>
+</head>
+<body>
+    <h1>Oppgave 3a</h1>
+
+    <script>
+        var number;
+        function mySeries(number){
+            var a = 1;
+            var b = 0;
+            var temp;
+
+            while(number >= 0){
+                temp = a;
+                a = a + b;
+                b = temp;
+                number--;
+                document.write(b);
+            }
+        };
+
+        mySeries(10);
+
+        console.log(mySeries(number));
+    </script>
+</body>
+</html>

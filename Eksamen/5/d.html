@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 5d</title>
+</head>
+<body>
+    <h1>Oppgave 5d</h1>
+
+    <p>I need to be removed!</p>
+
+    <p>I should stay here!</p>
+    <script>
+        //Oppgave 5d a
+        var numbers = [1, 3, 5, 7, 9, 11];
+        var boolean = [null, true, 'test', false, 'test2'];
+
+        function get3rdItem(){
+            console.log(numbers[2] + " : 5d a");
+        }
+
+        function get3rdItem1(){
+            console.log(boolean[2] + " : 5d a");
+        }
+
+        //Oppgave 5d b
+        var elem = document.querySelector('p');
+        elem.remove();
+
+        //Oppgave 5d c
+        function repeat(text, n){
+            if(n > 0){
+                console.log(text.repeat(n) + " : 5d c");
+            }
+        }
+        repeat('Java', 2);
+
+        //Oppgave 5d d
+        function cardNumber(str){
+            console.log(str.replace(/.(?=.{4})/g, "#")); 
+        }
+        cardNumber('123456789');
+
+        //Oppgave 5d e
+        function longWord(text) {
+            var string = text.split(" ");
+            var longest = 0;
+            var word = null;
+            for (var i = 0; i < string.length; i++){
+                if (longest < string[i].length){
+                    longest = string[i].length;
+                    word = string[i];
+                }
+            } 
+            console.log(word);
+        }
+
+        longWord('This is a sample text for testing'); //return testing
+    </script>
+</body>
+</html>
